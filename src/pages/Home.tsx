@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from '@dr.pogodin/react-helmet'
 import Hero from '@components/Hero'
 import ProductCard from '@components/ProductCard'
 import { staggerContainer, fadeIn } from '../Animations'

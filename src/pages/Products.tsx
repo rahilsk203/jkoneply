@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from '@dr.pogodin/react-helmet'
 import ProductCard from '../components/ProductCard'
 import { staggerContainer, fadeIn } from '../Animations'
 import products from '../data/products'

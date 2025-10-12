@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
+import { HelmetProvider } from '@dr.pogodin/react-helmet'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AppRoutes from './routes/AppRoutes'

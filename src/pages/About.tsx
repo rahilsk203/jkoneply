@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from '@dr.pogodin/react-helmet'
 import { staggerContainer, fadeIn } from '../Animations'
 
 const About = () => {
