@@ -13,26 +13,27 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>PylyWood - Premium Plywood & Timber</title>
-        <meta name="description" content="Sustainable, handcrafted plywood and timber for discerning craftsmen and designers. Beautiful materials that stand the test of time." />
+        <title>jkoneply - Premium Plywood & Timber Solutions</title>
+        <meta name="description" content="jkoneply provides sustainable, handcrafted plywood and timber for discerning craftsmen and designers. Beautiful materials that stand the test of time." />
       </Helmet>
 
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
+        className="pt-17"
       >
         {/* Hero Section */}
         <Hero />
 
         {/* Featured Products */}
-        <section className="py-20 bg-secondary-50 dark:bg-secondary-900/50">
+        <section className="py-16 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-900))]/50">
           <div className="container mx-auto px-4">
-            <motion.div variants={fadeIn} className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
+            <motion.div variants={fadeIn} className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-[rgb(var(--color-secondary-900))] dark:text-white mb-4">
                 Featured Products
               </h2>
-              <p className="text-lg text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
+              <p className="text-lg text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-300))] max-w-2xl mx-auto">
                 Discover our premium selection of plywood and timber, crafted with precision and sustainability in mind.
               </p>
             </motion.div>
@@ -48,10 +49,10 @@ const Home = () => {
               ))}
             </motion.div>
 
-            <motion.div variants={fadeIn} className="text-center mt-12">
+            <motion.div variants={fadeIn} className="text-center mt-10">
               <Link
                 to="/products"
-                className="inline-block px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="inline-block px-8 py-4 bg-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-700))] text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 View All Products
               </Link>
@@ -60,66 +61,84 @@ const Home = () => {
         </section>
 
         {/* Sustainability Section */}
-        <section className="py-20">
+        <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <motion.div variants={fadeIn} className="lg:w-1/2">
                 <div className="relative">
-                  <div className="w-full h-96 bg-secondary-200 dark:bg-secondary-700 rounded-3xl shadow-xl"></div>
-                  <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-primary-200 dark:bg-primary-900/50 rounded-3xl shadow-xl"></div>
-                  <div className="absolute -top-6 -left-6 w-48 h-48 bg-accent-200 dark:bg-accent-900/50 rounded-3xl shadow-xl"></div>
+                  <div className="w-full h-96 bg-[rgb(var(--color-secondary-200))] dark:bg-[rgb(var(--color-secondary-700))] rounded-3xl shadow-xl overflow-hidden">
+                    <img 
+                      src="/src/assets/galleryImage/gallery1.jpg" 
+                      alt="Sustainable Craftsmanship" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-[rgb(var(--color-primary-200))] dark:bg-[rgb(var(--color-primary-900))]/50 rounded-3xl shadow-xl overflow-hidden">
+                    <img 
+                      src="/src/assets/galleryImage/gallery2.jpg" 
+                      alt="Sustainable Materials" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute -top-6 -left-6 w-48 h-48 bg-[rgb(var(--color-accent-200))] dark:bg-[rgb(var(--color-accent-900))]/50 rounded-3xl shadow-xl overflow-hidden">
+                    <img 
+                      src="/src/assets/galleryImage/gallery3.jpg" 
+                      alt="Eco-friendly Process" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </motion.div>
 
               <motion.div variants={fadeIn} className="lg:w-1/2">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-[rgb(var(--color-secondary-900))] dark:text-white mb-6">
                   Sustainable Craftsmanship
                 </h2>
-                <p className="text-lg text-secondary-600 dark:text-secondary-300 mb-6">
-                  At PylyWood, we believe in responsible forestry and sustainable practices. Our materials are sourced 
+                <p className="text-lg text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-300))] mb-6">
+                  At jkoneply, we believe in responsible forestry and sustainable practices. Our materials are sourced 
                   from certified sustainable forests, ensuring that future generations can enjoy the beauty of natural wood.
                 </p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">
                     <div className="flex-shrink-0 mt-1 mr-4">
-                      <div className="w-6 h-6 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary-600 dark:text-primary-400" viewBox="0 0 20 20" fill="currentColor">
+                      <div className="w-6 h-6 bg-[rgb(var(--color-primary-100))] dark:bg-[rgb(var(--color-primary-900))]/50 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-primary-400))]" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
                     </div>
-                    <span className="text-secondary-700 dark:text-secondary-300">
+                    <span className="text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))]">
                       FSC certified materials from responsibly managed forests
                     </span>
                   </li>
                   <li className="flex items-start">
                     <div className="flex-shrink-0 mt-1 mr-4">
-                      <div className="w-6 h-6 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary-600 dark:text-primary-400" viewBox="0 0 20 20" fill="currentColor">
+                      <div className="w-6 h-6 bg-[rgb(var(--color-primary-100))] dark:bg-[rgb(var(--color-primary-900))]/50 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-primary-400))]" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
                     </div>
-                    <span className="text-secondary-700 dark:text-secondary-300">
+                    <span className="text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))]">
                       Low-waste production processes and eco-friendly treatments
                     </span>
                   </li>
                   <li className="flex items-start">
                     <div className="flex-shrink-0 mt-1 mr-4">
-                      <div className="w-6 h-6 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary-600 dark:text-primary-400" viewBox="0 0 20 20" fill="currentColor">
+                      <div className="w-6 h-6 bg-[rgb(var(--color-primary-100))] dark:bg-[rgb(var(--color-primary-900))]/50 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-primary-400))]" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
                     </div>
-                    <span className="text-secondary-700 dark:text-secondary-300">
+                    <span className="text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))]">
                       Carbon-neutral shipping and packaging solutions
                     </span>
                   </li>
                 </ul>
                 <Link
                   to="/about"
-                  className="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium transition-colors"
+                  className="inline-flex items-center text-[rgb(var(--color-primary-600))] hover:text-[rgb(var(--color-primary-700))] dark:text-[rgb(var(--color-primary-400))] dark:hover:text-[rgb(var(--color-primary-300))] font-medium transition-colors"
                 >
                   Learn more about our process
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
@@ -132,25 +151,25 @@ const Home = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-800 dark:to-accent-800">
+        <section className="py-16 bg-gradient-to-r from-[rgb(var(--color-primary-600))] to-[rgb(var(--color-accent-600))] dark:from-[rgb(var(--color-primary-800))] dark:to-[rgb(var(--color-accent-800))]">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <motion.h2 
                 variants={fadeIn}
-                className="text-3xl md:text-4xl font-bold text-white mb-6"
+                className="text-3xl md:text-4xl font-bold text-white mb-4"
               >
                 Ready to Start Your Project?
               </motion.h2>
               <motion.p 
                 variants={fadeIn}
-                className="text-xl text-primary-100 mb-10"
+                className="text-xl text-[rgb(var(--color-primary-100))] mb-8"
               >
                 Get a custom quote for your specific requirements and timeline.
               </motion.p>
               <motion.div variants={fadeIn} className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link
                   to="/quote"
-                  className="px-8 py-4 bg-white text-primary-700 hover:bg-secondary-100 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                  className="px-8 py-4 bg-white text-[rgb(var(--color-primary-700))] hover:bg-[rgb(var(--color-secondary-100))] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
                 >
                   Request a Quote
                 </Link>

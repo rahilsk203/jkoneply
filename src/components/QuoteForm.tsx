@@ -58,7 +58,7 @@ const QuoteForm = () => {
   }
 
   return (
-    <div className="bg-white dark:bg-secondary-800 rounded-3xl shadow-xl p-6 md:p-8">
+    <div className="bg-white dark:bg-[rgb(var(--color-secondary-800))] rounded-3xl shadow-xl p-6 md:p-8 border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-700))]">
       {submitSuccess ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,26 +70,26 @@ const QuoteForm = () => {
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-2">Quote Request Submitted!</h3>
-          <p className="text-secondary-600 dark:text-secondary-300 mb-6">
+          <h3 className="text-2xl font-bold text-[rgb(var(--color-secondary-900))] dark:text-white mb-2">Quote Request Submitted!</h3>
+          <p className="text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-300))] mb-6">
             Thank you for your request. Our team will review your specifications and contact you shortly.
           </p>
           <button
             onClick={() => setSubmitSuccess(false)}
-            className="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-300"
+            className="px-6 py-3 bg-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-700))] text-white font-medium rounded-lg transition-colors duration-300"
           >
             Submit Another Request
           </button>
         </motion.div>
       ) : (
         <>
-          <h2 className="text-2xl font-bold text-secondary-900 dark:text-white mb-2">Request a Custom Quote</h2>
-          <p className="text-secondary-600 dark:text-secondary-300 mb-8">
+          <h2 className="text-2xl font-bold text-[rgb(var(--color-secondary-900))] dark:text-white mb-2">Request a Custom Quote</h2>
+          <p className="text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-300))] mb-8">
             Fill out the form below with your project specifications and we'll provide a detailed quote.
           </p>
           
           {submitError && (
-            <div className="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 p-4 rounded-lg mb-6">
+            <div className="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 p-4 rounded-lg mb-6 border border-red-200 dark:border-red-800">
               {submitError}
             </div>
           )}
@@ -97,7 +97,7 @@ const QuoteForm = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Full Name *
                 </label>
                 <input
@@ -107,13 +107,13 @@ const QuoteForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                   placeholder="John Smith"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Email Address *
                 </label>
                 <input
@@ -123,13 +123,13 @@ const QuoteForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                   placeholder="john@example.com"
                 />
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Phone Number
                 </label>
                 <input
@@ -138,13 +138,13 @@ const QuoteForm = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                   placeholder="(123) 456-7890"
                 />
               </div>
               
               <div>
-                <label htmlFor="material" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="material" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Material Type *
                 </label>
                 <select
@@ -153,7 +153,7 @@ const QuoteForm = () => {
                   value={formData.material}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                 >
                   <option value="">Select Material</option>
                   <option value="plywood">Plywood</option>
@@ -165,7 +165,7 @@ const QuoteForm = () => {
               </div>
               
               <div>
-                <label htmlFor="thickness" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="thickness" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Thickness (mm) *
                 </label>
                 <input
@@ -176,13 +176,13 @@ const QuoteForm = () => {
                   onChange={handleChange}
                   required
                   min="1"
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                   placeholder="12"
                 />
               </div>
               
               <div>
-                <label htmlFor="quantity" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="quantity" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Quantity *
                 </label>
                 <input
@@ -193,13 +193,13 @@ const QuoteForm = () => {
                   onChange={handleChange}
                   required
                   min="1"
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                   placeholder="10"
                 />
               </div>
               
               <div>
-                <label htmlFor="width" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="width" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Width (mm)
                 </label>
                 <input
@@ -209,13 +209,13 @@ const QuoteForm = () => {
                   value={formData.width}
                   onChange={handleChange}
                   min="1"
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                   placeholder="600"
                 />
               </div>
               
               <div>
-                <label htmlFor="length" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="length" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Length (mm)
                 </label>
                 <input
@@ -225,13 +225,13 @@ const QuoteForm = () => {
                   value={formData.length}
                   onChange={handleChange}
                   min="1"
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                   placeholder="1200"
                 />
               </div>
               
               <div>
-                <label htmlFor="deliveryDate" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label htmlFor="deliveryDate" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                   Desired Delivery Date
                 </label>
                 <input
@@ -240,13 +240,13 @@ const QuoteForm = () => {
                   name="deliveryDate"
                   value={formData.deliveryDate}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                  className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                 />
               </div>
             </div>
             
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                 Additional Details
               </label>
               <textarea
@@ -255,7 +255,7 @@ const QuoteForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                 placeholder="Any special requirements, finishing preferences, or additional information..."
               ></textarea>
             </div>
@@ -263,7 +263,7 @@ const QuoteForm = () => {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+              className="w-full py-4 bg-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-700))] disabled:bg-[rgb(var(--color-primary-400))] text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

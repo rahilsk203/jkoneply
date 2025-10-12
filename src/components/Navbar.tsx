@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import logo from '../assets/logo.svg'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -39,6 +40,10 @@ const Navbar = () => {
     }
   }, [darkMode])
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Products', path: '/products' },
@@ -51,7 +56,7 @@ const Navbar = () => {
   return (
     <motion.nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 dark:bg-secondary-900/90 backdrop-blur-sm py-2 shadow-md' : 'py-4'
+        scrolled ? 'bg-white/95 dark:bg-[rgb(var(--color-secondary-900))]/95 backdrop-blur-sm py-2 shadow-md' : 'bg-white dark:bg-[rgb(var(--color-secondary-900))] py-4'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -60,8 +65,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-primary-800 dark:text-primary-200">
-            Pyly<span className="text-accent-600">Wood</span>
+          <Link to="/" className="text-2xl font-bold text-[rgb(var(--color-primary-800))] dark:text-[rgb(var(--color-primary-200))]">
+            <img src={logo} alt="jkoneply Logo" className="h-8" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,8 +77,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`font-medium transition-colors duration-300 ${
                   location.pathname === link.path
-                    ? 'text-primary-700 dark:text-primary-300'
-                    : 'text-secondary-700 hover:text-primary-600 dark:text-secondary-200 dark:hover:text-primary-200'
+                    ? 'text-[rgb(var(--color-primary-700))] dark:text-[rgb(var(--color-primary-300))]'
+                    : 'text-[rgb(var(--color-secondary-700))] hover:text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-secondary-200))] dark:hover:text-[rgb(var(--color-primary-200))]'
                 }`}
               >
                 {link.name}
@@ -82,8 +87,8 @@ const Navbar = () => {
             
             {/* Dark Mode Toggle */}
             <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors"
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full bg-[rgb(var(--color-secondary-100))] dark:bg-[rgb(var(--color-secondary-800))] text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-200))] hover:bg-[rgb(var(--color-secondary-200))] dark:hover:bg-[rgb(var(--color-secondary-700))] transition-colors"
               aria-label="Toggle dark mode"
             >
               {darkMode ? (
@@ -100,7 +105,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md text-secondary-700 dark:text-secondary-200"
+            className="md:hidden p-2 rounded-md text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-200))] bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-800))]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -119,7 +124,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <motion.div 
-            className="md:hidden mt-4 py-4 border-t border-secondary-200 dark:border-secondary-700"
+            className="md:hidden mt-4 py-4 border-t border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-700))] bg-white dark:bg-[rgb(var(--color-secondary-900))]"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -132,8 +137,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`font-medium py-2 px-4 rounded-lg transition-colors duration-300 ${
                     location.pathname === link.path
-                      ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/50 dark:text-primary-200'
-                      : 'text-secondary-700 hover:bg-secondary-100 dark:text-secondary-200 dark:hover:bg-secondary-800'
+                      ? 'bg-[rgb(var(--color-primary-100))] text-[rgb(var(--color-primary-700))] dark:bg-[rgb(var(--color-primary-900))]/50 dark:text-[rgb(var(--color-primary-200))]'
+                      : 'text-[rgb(var(--color-secondary-700))] hover:bg-[rgb(var(--color-secondary-100))] dark:text-[rgb(var(--color-secondary-200))] dark:hover:bg-[rgb(var(--color-secondary-800))]'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -142,11 +147,14 @@ const Navbar = () => {
               ))}
               
               {/* Mobile Dark Mode Toggle */}
-              <div className="flex items-center justify-between pt-4 border-t border-secondary-200 dark:border-secondary-700">
-                <span className="text-secondary-700 dark:text-secondary-200">Dark Mode</span>
+              <div className="flex items-center justify-between pt-4 border-t border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-700))]">
+                <span className="text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-200))]">Dark Mode</span>
                 <button
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="p-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200"
+                  onClick={() => {
+                    toggleDarkMode()
+                    setIsMenuOpen(false)
+                  }}
+                  className="p-2 rounded-full bg-[rgb(var(--color-secondary-100))] dark:bg-[rgb(var(--color-secondary-800))] text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-200))]"
                   aria-label="Toggle dark mode"
                 >
                   {darkMode ? (

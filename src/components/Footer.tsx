@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logo from '../assets/logo.svg'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -41,16 +42,16 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-secondary-50 dark:bg-secondary-900 border-t border-secondary-200 dark:border-secondary-800">
+    <footer className="bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-900))] border-t border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-800))]">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="text-2xl font-bold text-primary-800 dark:text-primary-200 mb-4 block">
-              Pyly<span className="text-accent-600">Wood</span>
+          <div className="md:col-span-2">
+            <Link to="/" className="text-2xl font-bold text-[rgb(var(--color-primary-800))] dark:text-[rgb(var(--color-primary-200))] mb-4 block">
+              <img src={logo} alt="jkoneply Logo" className="h-8 mb-4" />
             </Link>
-            <p className="text-secondary-600 dark:text-secondary-300 mb-6 max-w-md">
-              Premium plywood and timber solutions for discerning craftsmen and designers. 
+            <p className="text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-300))] mb-6 max-w-md">
+              jkoneply provides premium plywood and timber solutions for discerning craftsmen and designers. 
               Sustainable, beautiful, and built to last.
             </p>
             <div className="flex space-x-4">
@@ -58,7 +59,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.url}
-                  className="p-2 bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 rounded-full hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-700 dark:hover:text-primary-200 transition-colors"
+                  className="p-3 bg-[rgb(var(--color-secondary-100))] dark:bg-[rgb(var(--color-secondary-800))] text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-200))] rounded-full hover:bg-[rgb(var(--color-primary-600))] hover:text-white dark:hover:bg-[rgb(var(--color-primary-600))] dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
                   aria-label={social.name}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -72,15 +73,15 @@ const Footer = () => {
           {/* Footer Links */}
           {footerLinks.map((section, index) => (
             <div key={index}>
-              <h3 className="text-lg font-semibold text-secondary-800 dark:text-secondary-100 mb-4">
+              <h3 className="text-lg font-semibold text-[rgb(var(--color-secondary-800))] dark:text-[rgb(var(--color-secondary-100))] mb-4 pb-2 border-b border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-800))]">
                 {section.title}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <Link
                       to={link.path}
-                      className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors"
+                      className="text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-400))] hover:text-[rgb(var(--color-primary-600))] dark:hover:text-[rgb(var(--color-primary-300))] transition-colors duration-300 inline-block hover:translate-x-1 transform"
                     >
                       {link.name}
                     </Link>
@@ -92,9 +93,9 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-secondary-200 dark:border-secondary-800 mt-12 pt-8 text-center">
-          <p className="text-secondary-600 dark:text-secondary-400">
-            &copy; {currentYear} PylyWood. All rights reserved. Crafted with care for sustainable woodworking.
+        <div className="border-t border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-800))] mt-12 pt-8 text-center">
+          <p className="text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-400))]">
+            &copy; {currentYear} jkoneply. All rights reserved. Crafted with care for sustainable woodworking.
           </p>
         </div>
       </div>

@@ -2,17 +2,18 @@
 
 @layer base {
   :root {
-    --color-primary-50: 255 248 240;
-    --color-primary-100: 253 238 226;
-    --color-primary-200: 250 223 210;
-    --color-primary-300: 246 201 185;
-    --color-primary-400: 241 169 146;
-    --color-primary-500: 233 132 100;
-    --color-primary-600: 219 102 78;
-    --color-primary-700: 193 79 63;
-    --color-primary-800: 158 65 55;
-    --color-primary-900: 128 55 49;
-    --color-primary-950: 74 27 25;
+    /* Updated primary color to match logo's red (#ff0026) */
+    --color-primary-50: 255 240 242;
+    --color-primary-100: 255 224 228;
+    --color-primary-200: 255 192 198;
+    --color-primary-300: 255 144 159;
+    --color-primary-400: 255 96 120;
+    --color-primary-500: 255 48 81;
+    --color-primary-600: 255 0 38; /* This matches the logo color #ff0026 */
+    --color-primary-700: 204 0 30;
+    --color-primary-800: 153 0 23;
+    --color-primary-900: 102 0 15;
+    --color-primary-950: 51 0 8;
     
     --color-secondary-50: 249 247 243;
     --color-secondary-100: 242 238 232;
@@ -42,15 +43,15 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply px-6 py-3 bg-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-700))] text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-stone-600 hover:bg-stone-700 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply px-6 py-3 bg-[rgb(var(--color-secondary-600))] hover:bg-[rgb(var(--color-secondary-700))] text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
   }
   
   .btn-outline {
-    @apply px-6 py-3 bg-transparent border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-medium rounded-xl transition-all duration-300;
+    @apply px-6 py-3 bg-transparent border-2 border-[rgb(var(--color-primary-600))] text-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-600))] hover:text-white font-medium rounded-xl transition-all duration-300;
   }
 }
 
@@ -83,7 +84,7 @@
 
 /* Focus styles for accessibility */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:focus:ring-offset-stone-900;
+  @apply focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:ring-offset-2 dark:focus:ring-offset-stone-900;
 }
 
 /* Scrollbar styling */
@@ -93,13 +94,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-stone-100 dark:bg-stone-800;
+  @apply bg-[rgb(var(--color-secondary-100))] dark:bg-[rgb(var(--color-secondary-800))];
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-stone-300 dark:bg-stone-600 rounded-full;
+  @apply bg-[rgb(var(--color-secondary-300))] dark:bg-[rgb(var(--color-secondary-600))] rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-stone-400 dark:bg-stone-500;
+  @apply bg-[rgb(var(--color-secondary-400))] dark:bg-[rgb(var(--color-secondary-500))];
 }

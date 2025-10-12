@@ -52,7 +52,7 @@ const Contact = () => {
       title: "Address",
       content: "123 Timber Lane, Woodville, WV 24567",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-primary-400))]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
@@ -62,16 +62,16 @@ const Contact = () => {
       title: "Phone",
       content: "+1 (555) 123-4567",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-primary-400))]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       )
     },
     {
       title: "Email",
-      content: "info@pylywood.com",
+      content: "info@jkoneply.com",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-primary-400))]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       )
@@ -80,7 +80,7 @@ const Contact = () => {
       title: "Business Hours",
       content: "Monday-Friday: 8am-6pm\nSaturday: 9am-4pm\nSunday: Closed",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-primary-400))]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       )
@@ -90,43 +90,43 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us - PylyWood</title>
-        <meta name="description" content="Get in touch with PylyWood for inquiries about our products, custom orders, or project consultations." />
+        <title>Contact Us - jkoneply</title>
+        <meta name="description" content="Get in touch with jkoneply for inquiries about our products, custom orders, or project consultations." />
       </Helmet>
 
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="pt-24 pb-12"
+        className="pt-20 pb-12"
       >
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-secondary-900 dark:to-secondary-800">
+        <section className="py-16 bg-gradient-to-r from-[rgb(var(--color-primary-50))] to-[rgb(var(--color-accent-50))] dark:from-[rgb(var(--color-secondary-900))] dark:to-[rgb(var(--color-secondary-800))]">
           <div className="container mx-auto px-4">
             <motion.div variants={fadeIn} className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-[rgb(var(--color-secondary-900))] dark:text-white mb-4">
                 Get in Touch
               </h1>
-              <p className="text-xl text-secondary-600 dark:text-secondary-300">
+              <p className="text-xl text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-300))]">
                 Have questions about our products or need help with a custom order? 
-                Our team is here to assist you.
+                Our team at jkoneply is here to assist you.
               </p>
             </motion.div>
           </div>
         </section>
 
-        <section className="py-12">
+        <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <motion.div variants={fadeIn}>
-                <div className="bg-white dark:bg-secondary-800 rounded-3xl shadow-xl p-6 md:p-8">
-                  <h2 className="text-2xl font-bold text-secondary-900 dark:text-white mb-6">
+                <div className="bg-white dark:bg-[rgb(var(--color-secondary-800))] rounded-3xl shadow-xl p-6 md:p-8 border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-700))]">
+                  <h2 className="text-2xl font-bold text-[rgb(var(--color-secondary-900))] dark:text-white mb-6">
                     Send us a Message
                   </h2>
                   
                   {submitSuccess ? (
-                    <div className="bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 p-6 rounded-2xl mb-6">
+                    <div className="bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 p-6 rounded-2xl mb-6 border border-green-200 dark:border-green-800">
                       <div className="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -138,14 +138,14 @@ const Contact = () => {
                   ) : null}
                   
                   {submitError ? (
-                    <div className="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 p-4 rounded-2xl mb-6">
+                    <div className="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 p-4 rounded-2xl mb-6 border border-red-200 dark:border-red-800">
                       {submitError}
                     </div>
                   ) : null}
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                         Full Name *
                       </label>
                       <input
@@ -155,13 +155,13 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                        className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                         placeholder="John Smith"
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                         Email Address *
                       </label>
                       <input
@@ -171,13 +171,13 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                        className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                         placeholder="john@example.com"
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                      <label htmlFor="subject" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                         Subject *
                       </label>
                       <input
@@ -187,13 +187,13 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                        className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                         placeholder="How can we help you?"
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-300))] mb-2">
                         Message *
                       </label>
                       <textarea
@@ -203,7 +203,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         rows={5}
-                        className="w-full px-4 py-3 bg-secondary-50 dark:bg-secondary-700 border border-secondary-200 dark:border-secondary-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400 transition-colors"
+                        className="w-full px-4 py-3 bg-[rgb(var(--color-secondary-50))] dark:bg-[rgb(var(--color-secondary-700))] border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))] rounded-xl focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:border-[rgb(var(--color-primary-500))] dark:focus:ring-[rgb(var(--color-primary-400))] dark:focus:border-[rgb(var(--color-primary-400))] transition-colors text-[rgb(var(--color-secondary-900))] dark:text-white focus:outline-none"
                         placeholder="Please provide details about your inquiry..."
                       ></textarea>
                     </div>
@@ -211,7 +211,7 @@ const Contact = () => {
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+                      className="w-full py-4 bg-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-700))] disabled:bg-[rgb(var(--color-primary-400))] text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -233,22 +233,22 @@ const Contact = () => {
 
               {/* Contact Information */}
               <motion.div variants={fadeIn}>
-                <div className="bg-white dark:bg-secondary-800 rounded-3xl shadow-xl p-6 md:p-8 h-full">
-                  <h2 className="text-2xl font-bold text-secondary-900 dark:text-white mb-6">
+                <div className="bg-white dark:bg-[rgb(var(--color-secondary-800))] rounded-3xl shadow-xl p-6 md:p-8 h-full border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-700))]">
+                  <h2 className="text-2xl font-bold text-[rgb(var(--color-secondary-900))] dark:text-white mb-6">
                     Contact Information
                   </h2>
                   
                   <div className="space-y-8">
                     {contactInfo.map((info, index) => (
-                      <div key={index} className="flex">
-                        <div className="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-xl flex items-center justify-center mr-6">
+                      <div key={index} className="flex group">
+                        <div className="flex-shrink-0 w-12 h-12 bg-[rgb(var(--color-primary-100))] dark:bg-[rgb(var(--color-primary-900))]/50 rounded-xl flex items-center justify-center mr-6 group-hover:bg-[rgb(var(--color-primary-600))] group-hover:text-white transition-colors duration-300">
                           {info.icon}
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">
+                          <h3 className="text-lg font-semibold text-[rgb(var(--color-secondary-900))] dark:text-white mb-2">
                             {info.title}
                           </h3>
-                          <p className="text-secondary-600 dark:text-secondary-300 whitespace-pre-line">
+                          <p className="text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-300))] whitespace-pre-line">
                             {info.content}
                           </p>
                         </div>
@@ -258,15 +258,15 @@ const Contact = () => {
                   
                   {/* Map Placeholder */}
                   <div className="mt-12">
-                    <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-4">
+                    <h3 className="text-lg font-semibold text-[rgb(var(--color-secondary-900))] dark:text-white mb-4">
                       Our Location
                     </h3>
-                    <div className="bg-secondary-100 dark:bg-secondary-700 rounded-2xl h-64 flex items-center justify-center">
+                    <div className="bg-[rgb(var(--color-secondary-100))] dark:bg-[rgb(var(--color-secondary-700))] rounded-2xl h-64 flex items-center justify-center border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-600))]">
                       <div className="text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-secondary-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[rgb(var(--color-secondary-400))] mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                         </svg>
-                        <p className="text-secondary-600 dark:text-secondary-300">
+                        <p className="text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-300))]">
                           Interactive map would appear here
                         </p>
                       </div>

@@ -28,8 +28,8 @@ const GalleryGrid = ({ items }: GalleryGridProps) => {
             onClick={() => setSelectedCategory(category)}
             className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
               selectedCategory === category
-                ? 'bg-primary-600 text-white shadow-lg'
-                : 'bg-secondary-100 text-secondary-700 hover:bg-secondary-200 dark:bg-secondary-800 dark:text-secondary-200 dark:hover:bg-secondary-700'
+                ? 'bg-[rgb(var(--color-primary-600))] text-white shadow-lg'
+                : 'bg-[rgb(var(--color-secondary-100))] text-[rgb(var(--color-secondary-700))] hover:bg-[rgb(var(--color-secondary-200))] dark:bg-[rgb(var(--color-secondary-800))] dark:text-[rgb(var(--color-secondary-200))] dark:hover:bg-[rgb(var(--color-secondary-700))]'
             }`}
           >
             {category}
@@ -54,9 +54,9 @@ const GalleryGrid = ({ items }: GalleryGridProps) => {
                 alt={item.title}
                 className="absolute w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgb(var(--color-secondary-900))]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-secondary-200">{item.description}</p>
+                <p className="text-[rgb(var(--color-secondary-200))]">{item.description}</p>
               </div>
             </div>
           </motion.div>

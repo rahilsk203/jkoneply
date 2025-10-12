@@ -9,7 +9,7 @@ interface ProductCardProps {
 const ProductCard = ({ product, onClick }: ProductCardProps) => {
   return (
     <motion.div
-      className="bg-white dark:bg-secondary-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+      className="bg-white dark:bg-[rgb(var(--color-secondary-800))] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer border border-[rgb(var(--color-secondary-200))] dark:border-[rgb(var(--color-secondary-700))]"
       whileHover={{ y: -5 }}
       onClick={onClick}
     >
@@ -22,22 +22,22 @@ const ProductCard = ({ product, onClick }: ProductCardProps) => {
       </div>
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-semibold text-secondary-900 dark:text-white">{product.name}</h3>
-          <span className="text-lg font-bold text-primary-600 dark:text-primary-400">${product.price.toFixed(2)}</span>
+          <h3 className="text-xl font-semibold text-[rgb(var(--color-secondary-900))] dark:text-white">{product.name}</h3>
+          <span className="text-lg font-bold text-[rgb(var(--color-primary-600))] dark:text-[rgb(var(--color-primary-300))]">₹{product.price.toLocaleString('en-IN')}</span>
         </div>
-        <p className="text-secondary-600 dark:text-secondary-300 mb-4 line-clamp-2">{product.description}</p>
+        <p className="text-[rgb(var(--color-secondary-600))] dark:text-[rgb(var(--color-secondary-200))] mb-4 line-clamp-2">{product.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
-          <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/50 text-primary-800 dark:text-primary-200 text-sm rounded-full">
+          <span className="px-3 py-1 bg-[rgb(var(--color-primary-100))] dark:bg-[rgb(var(--color-primary-900))] text-[rgb(var(--color-primary-800))] dark:text-[rgb(var(--color-primary-200))] text-sm rounded-full">
             {product.category}
           </span>
-          <span className="px-3 py-1 bg-accent-100 dark:bg-accent-900/50 text-accent-800 dark:text-accent-200 text-sm rounded-full">
+          <span className="px-3 py-1 bg-[rgb(var(--color-accent-100))] dark:bg-[rgb(var(--color-accent-900))] text-[rgb(var(--color-accent-800))] dark:text-[rgb(var(--color-accent-200))] text-sm rounded-full">
             {product.thickness}
           </span>
-          <span className="px-3 py-1 bg-secondary-100 dark:bg-secondary-700 text-secondary-800 dark:text-secondary-200 text-sm rounded-full">
+          <span className="px-3 py-1 bg-[rgb(var(--color-secondary-100))] dark:bg-[rgb(var(--color-secondary-700))] text-[rgb(var(--color-secondary-800))] dark:text-[rgb(var(--color-secondary-200))] text-sm rounded-full">
             {product.grade}
           </span>
         </div>
-        <button className="w-full py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-300">
+        <button className="w-full py-2 bg-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-700))] text-white font-medium rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-primary-500))] focus:ring-offset-2 dark:focus:ring-offset-[rgb(var(--color-secondary-900))]">
           View Details
         </button>
       </div>
