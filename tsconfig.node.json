@@ -14,15 +14,6 @@
     "moduleDetection": "force",
     "noEmit": true,
 
-    /* Path aliases */
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@routes/*": ["src/routes/*"],
-      "@data/*": ["src/data/*"]
-    },
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

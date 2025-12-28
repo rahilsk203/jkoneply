@@ -1,43 +1,73 @@
-# jkoneply - Premium Plywood & Timber Solutions
+# React + TypeScript + Vite
 
-Welcome to jkoneply, a premium plywood and timber solutions provider for discerning craftsmen and designers. This project showcases our commitment to sustainable craftsmanship and high-quality wood products.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## About jkoneply
+Currently, two official plugins are available:
 
-jkoneply is a modern web application built with React, TypeScript, and Vite, featuring:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- Responsive design for all devices
-- Dark mode support
-- Smooth animations with Framer Motion
-- SEO optimization with React Helmet
-- Modern UI components with Tailwind CSS
+## React Compiler
 
-## Features
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- **Product Showcase**: Browse our premium selection of plywood and timber
-- **Gallery**: View completed projects showcasing our materials
-- **Custom Quotes**: Request personalized quotes for your projects
-- **Sustainability**: Learn about our commitment to environmental responsibility
+## Expanding the ESLint configuration
 
-## Technology Stack
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-- [React](https://reactjs.org/) - JavaScript library for building user interfaces
-- [TypeScript](https://www.typescriptlang.org/) - Typed superset of JavaScript
-- [Vite](https://vitejs.dev/) - Next generation frontend tooling
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Framer Motion](https://www.framer.com/motion/) - Production-ready motion library
-- [React Router](https://reactrouter.com/) - Declarative routing for React
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## Getting Started
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Start the development server with `npm run dev`
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## Deployment
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Build the project with `npm run build` and deploy the dist folder to your preferred hosting platform.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## License
-
-This project is proprietary to jkoneply and should not be distributed without permission.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

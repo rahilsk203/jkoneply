@@ -1,128 +1,120 @@
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { fadeIn, staggerContainer } from '../Animations'
-import gallery1 from '../assets/galleryImage/gallery1.jpg'
-import gallery2 from '../assets/galleryImage/gallery2.jpg'
-import gallery3 from '../assets/galleryImage/gallery3.jpg'
-import gallery4 from '../assets/galleryImage/gallery4.jpg'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import livingRoomIcon from '../assets/living_room.svg';
+import livingRoomHover from '../assets/living_room_hover.svg';
+import bedroomIcon from '../assets/bedroom_Inspiration.svg';
+import bedroomHover from '../assets/bedroom_inspiration_hover.svg';
+import diningIcon from '../assets/Dining_Area.svg';
+import diningHover from '../assets/Dining_Area_hover.svg';
+import commercialIcon from '../assets/Commercial_Spaces.svg';
+import commercialHover from '../assets/Commercial_Spaces_hover.svg';
+import minimalIcon from '../assets/Minimal_Interiors.svg';
+import minimalHover from '../assets/Minimal_Interiors_hover.svg';
 
-const Hero = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [isHovering, setIsHovering] = useState(false)
-  const images = [gallery1, gallery2, gallery3, gallery4]
-
-  // Auto-change images when hovering
-  useEffect(() => {
-    let interval: any = null
-    if (isHovering) {
-      interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-      }, 1500) // Change image every 1.5 seconds
+const slides = [
+    {
+        image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=2000&auto=format&fit=crop',
+        title: 'JKONEPLY Premium Plywood',
+        subtitle: 'The ultimate choice for strength and durability. Engineered for excellence, crafted for your dream home.'
+    },
+    {
+        image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
+        title: 'Exquisite Designer Laminates',
+        subtitle: 'Transform your interiors with our stunning range of textures and finishes. Style that speaks volumes.'
+    },
+    {
+        image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop',
+        title: 'Architectural Veneers',
+        subtitle: 'Bring the natural beauty of wood to your spaces. Premium veneers for a sophisticated and timeless look.'
     }
-    return () => {
-      if (interval) clearInterval(interval)
-    }
-  }, [isHovering, images.length])
+];
 
-  const handleMouseEnter = () => {
-    setIsHovering(true)
-  }
+const categories = [
+    { name: 'LIVING ROOM', icon: livingRoomIcon, hover: livingRoomHover },
+    { name: 'BEDROOM INSPIRATION', icon: bedroomIcon, hover: bedroomHover },
+    { name: 'DINING AREA', icon: diningIcon, hover: diningHover },
+    { name: 'COMMERCIAL SPACES', icon: commercialIcon, hover: commercialHover },
+    { name: 'MINIMAL INTERIORS', icon: minimalIcon, hover: minimalHover }
+];
 
-  const handleMouseLeave = () => {
-    setIsHovering(false)
-    // Reset to first image when not hovering
-    setCurrentImageIndex(0)
-  }
+const Hero: React.FC = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const navigate = useNavigate();
 
-  return (
-    <motion.section 
-      className="relative bg-gradient-to-r from-[rgb(var(--color-primary-50))] to-[rgb(var(--color-accent-50))] dark:from-[rgb(var(--color-secondary-900))] dark:to-[rgb(var(--color-secondary-800))] py-20 md:py-32 overflow-hidden"
-      variants={staggerContainer}
-      initial="hidden"
-      animate="visible"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10 dark:opacity-5">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[rgb(var(--color-primary-300))] rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[rgb(var(--color-accent-300))] rounded-full filter blur-3xl"></div>
-      </div>
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    };
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center">
-          <motion.div className="md:w-1/2 mb-12 md:mb-0" variants={fadeIn}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[rgb(var(--color-secondary-900))] dark:text-white mb-6">
-              Premium <span className="text-[rgb(var(--color-primary-700))] dark:text-[rgb(var(--color-primary-300))]">Plywood</span> & Timber
-            </h1>
-            <p className="text-lg md:text-xl text-[rgb(var(--color-secondary-700))] dark:text-[rgb(var(--color-secondary-200))] mb-8 max-w-lg">
-              Sustainable, handcrafted wood products for discerning craftsmen and designers. 
-              Beautiful materials that stand the test of time.
-            </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Link 
-                to="/products" 
-                className="px-8 py-4 bg-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-700))] text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
-              >
-                Explore Products
-              </Link>
-              <Link 
-                to="/quote" 
-                className="px-8 py-4 bg-transparent border-2 border-[rgb(var(--color-primary-600))] text-[rgb(var(--color-primary-600))] hover:bg-[rgb(var(--color-primary-600))] hover:text-white font-medium rounded-xl transition-all duration-300 text-center dark:border-[rgb(var(--color-primary-400))] dark:text-[rgb(var(--color-primary-300))] dark:hover:bg-[rgb(var(--color-primary-400))] dark:hover:text-white"
-              >
-                Get Quote
-              </Link>
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    };
+
+    useEffect(() => {
+        const timer = setInterval(nextSlide, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <section className="hero">
+            <div className="hero-slider">
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+                        style={{ backgroundImage: `url('${slide.image}')` }}
+                    >
+                        <div className="container">
+                            <div className="hero-content">
+                                <h1>{slide.title}</h1>
+                                <p>{slide.subtitle}</p>
+                                <button onClick={() => navigate('/products')} className="btn btn-white explore-btn">
+                                    Shop Now <span className="arrow-icon"><i className="fas fa-arrow-right"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+
+                <button className="slider-arrow prev" onClick={prevSlide}>
+                    <i className="fas fa-chevron-left"></i>
+                </button>
+                <button className="slider-arrow next" onClick={nextSlide}>
+                    <i className="fas fa-chevron-right"></i>
+                </button>
+
+                <div className="slider-dots">
+                    {slides.map((_, index) => (
+                        <span
+                            key={index}
+                            className={`dot ${index === currentSlide ? 'active' : ''}`}
+                            onClick={() => setCurrentSlide(index)}
+                        ></span>
+                    ))}
+                </div>
             </div>
-          </motion.div>
 
-          <motion.div 
-            className="md:w-1/2 flex justify-center"
-            variants={fadeIn}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="relative">
-               <div className="w-80 h-80 md:w-96 md:h-96 bg-[rgb(var(--color-primary-200))] dark:bg-[rgb(var(--color-secondary-700))] rounded-3xl shadow-2xl transform rotate-6 overflow-hidden">
-                <motion.img 
-                  key={`bottom-${currentImageIndex}`}
-                  src={images[(currentImageIndex + 2) % images.length]} 
-                  alt="Premium Plywood" 
-                  className="w-full h-full object-cover opacity-50"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.7 }}
-                />
-              </div>
-              <div className="absolute top-0 left-0 w-80 h-80 md:w-96 md:h-96 bg-[rgb(var(--color-accent-200))] dark:bg-[rgb(var(--color-secondary-600))] rounded-3xl shadow-2xl transform -rotate-6 overflow-hidden">
-                <motion.img 
-                  key={`middle-${currentImageIndex}`}
-                  src={images[(currentImageIndex + 1) % images.length]} 
-                  alt="Premium Plywood" 
-                  className="w-full h-full object-cover opacity-70"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.6 }}
-                />
-              </div>
-              <div className="absolute top-4 left-4 w-80 h-80 md:w-96 md:h-96 bg-[rgb(var(--color-primary-300))] dark:bg-[rgb(var(--color-secondary-800))] rounded-3xl shadow-2xl transform rotate-3 overflow-hidden">
-                <motion.img 
-                  key={`top-${currentImageIndex}`}
-                  src={images[currentImageIndex]} 
-                  alt="Premium Plywood" 
-                  className="w-full h-full object-cover"
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -5 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </div>
+            <div className="hero-category-bar">
+                <div className="container">
+                    <div className="category-list">
+                        {categories.map((cat, index) => (
+                            <div
+                                key={index}
+                                className="category-item"
+                                onClick={() => navigate('/inspiration')}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                <div className="category-icon-wrapper">
+                                    <img src={cat.icon} alt={cat.name} className="cat-icon default" />
+                                    <img src={cat.hover} alt={cat.name} className="cat-icon hover" />
+                                </div>
+                                <span>{cat.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-          </motion.div>
-        </div>
-      </div>
-    </motion.section>
-  )
-}
+        </section>
+    );
+};
 
-export default Hero
+export default Hero;
