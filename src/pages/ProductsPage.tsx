@@ -18,11 +18,7 @@ const ProductsPage: React.FC = () => {
                 <Products activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
 
                 <div className="products-features" style={{ marginTop: '100px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px' }}>
-                    <div className="feature-item" style={{ textAlign: 'center', padding: '40px 30px', background: '#fff', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-                        <i className="fas fa-truck" style={{ fontSize: '32px', color: 'var(--primary-color)', marginBottom: '20px' }}></i>
-                        <h3 style={{ fontSize: '20px', marginBottom: '10px' }}>Fast Delivery</h3>
-                        <p style={{ color: '#666' }}>Quick and safe delivery to your doorstep across the country.</p>
-                    </div>
+
                     <div className="feature-item" style={{ textAlign: 'center', padding: '40px 30px', background: '#fff', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
                         <i className="fas fa-shield-alt" style={{ fontSize: '32px', color: 'var(--primary-color)', marginBottom: '20px' }}></i>
                         <h3 style={{ fontSize: '20px', marginBottom: '10px' }}>Quality Assurance</h3>

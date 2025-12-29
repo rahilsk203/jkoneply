@@ -48,10 +48,9 @@ const ContactPage: React.FC = () => {
                         </div>
 
                         <div className="social-links-contact">
-                            <a href="#"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#"><i className="fab fa-instagram"></i></a>
-                            <a href="#"><i className="fab fa-twitter"></i></a>
-                            <a href="#"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/share/1EDxRDqe9P/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/@jkoneply" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
                         </div>
                     </div>
 

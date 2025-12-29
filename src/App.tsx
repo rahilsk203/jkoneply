@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import ProductsPage from './pages/ProductsPage'
 import InspirationPage from './pages/InspirationPage'
 import ContactPage from './pages/ContactPage'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
 import './App.css'
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/inspiration" element={<InspirationPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
           </Routes>
         </main>
         <Footer />
