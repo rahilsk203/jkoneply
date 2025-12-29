@@ -1102,7 +1102,6 @@ ul {
 /* Hide extra icons on very small screens */
 @media (max-width: 480px) {
 
-  .icons .fa-user,
   .icons .fa-heart {
     display: none !important;
   }
