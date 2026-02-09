@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKONEPLY API Tester</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 { color: var(--primary); }
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        button:hover { opacity: 0.9; }
+        button.secondary { background: #64748b; }
+        button.danger { background: #ef4444; }
+        
+        #response-area {
+            background: #1e293b;
+            color: #a5f3fc;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .product-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JKONEPLY API Tester</h1>
+        <div id="status" class="card hidden"></div>
+
+        <!-- Auth Section -->
+        <div class="card">
+            <h2>Authentication</h2>
+            <div id="auth-forms">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label>Email (Register only)</label>
+                    <input type="email" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter password">
+                </div>
+                <button onclick="register()">Register</button>
+                <button onclick="login()" class="secondary">Login</button>
+            </div>
+            <div id="user-info" class="hidden">
+                <p>Logged in as: <strong id="current-user"></strong> (<span id="current-role"></span>)</p>
+                <button onclick="logout()" class="danger">Logout</button>
+            </div>
+        </div>
+
+        <!-- Product Management -->
+        <div class="card">
+            <h2>Product Management</h2>
+            <button onclick="fetchProducts()">Refresh Product List</button>
+            <div id="product-list" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Create Product (Admin) -->
+        <div class="card" id="admin-panel">
+            <h2>Create Product (Admin Only)</h2>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="prod-name" value="New Plywood">
+            </div>
+            <div class="form-group">
+                <label>Company</label>
+                <input type="text" id="prod-company" value="JK Ply">
+            </div>
+            <div class="form-group">
+                <label>Size</label>
+                <input type="text" id="prod-size" value="8x4">
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="number" id="prod-price" value="1500">
+            </div>
+            <div class="form-group">
+                <label>Media (Optional)</label>
+                <input type="file" id="prod-media">
+            </div>
+            <button onclick="createProduct()">Create Product</button>
+        </div>
+
+        <!-- Logs -->
+        <div class="card">
+            <h2>Response Log</h2>
+            <div id="response-area">Ready...</div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://jkoneply-api.jkoneply.workers.dev';
+        let token = localStorage.getItem('jwt_token');
+        let user = JSON.parse(localStorage.getItem('user_info') || '{}');
+
+        function updateUI() {
+            if (token) {
+                document.getElementById('auth-forms').classList.add('hidden');
+                document.getElementById('user-info').classList.remove('hidden');
+                document.getElementById('current-user').textContent = user.username;
+                document.getElementById('current-role').textContent = user.role;
+                
+                // Show admin panel only if admin
+                /* Note: In a real app, you'd hide this securely, but for testing we just toggle visibility */
+                // document.getElementById('admin-panel').style.display = user.role === 'admin' ? 'block' : 'none';
+            } else {
+                document.getElementById('auth-forms').classList.remove('hidden');
+                document.getElementById('user-info').classList.add('hidden');
+            }
+        }
+
+        function log(msg, isError = false) {
+            const area = document.getElementById('response-area');
+            const timestamp = new Date().toLocaleTimeString();
+            area.textContent = `[${timestamp}] ${typeof msg === 'object' ? JSON.stringify(msg, null, 2) : msg}\n\n` + area.textContent;
+            if (isError) console.error(msg);
+            else console.log(msg);
+        }
+
+        async function apiCall(endpoint, method = 'GET', body = null, isFormData = false) {
+            const headers = {};
+            if (token) headers['Authorization'] = `Bearer ${token}`;
+            if (!isFormData) headers['Content-Type'] = 'application/json';
+
+            const options = { method, headers };
+            if (body) options.body = isFormData ? body : JSON.stringify(body);
+
+            try {
+                log(`Sending ${method} request to ${endpoint}...`);
+                const res = await fetch(`${API_URL}${endpoint}`, options);
+                const data = await res.json();
+                log(data);
+                return { ok: res.ok, data };
+            } catch (e) {
+                log(`Error: ${e.message}`, true);
+                return { ok: false, error: e.message };
+            }
+        }
+
+        async function register() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const res = await apiCall('/api/register', 'POST', { username, email, password });
+            if (res.ok) {
+                handleAuthSuccess(res.data);
+            }
+        }
+
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const res = await apiCall('/api/login', 'POST', { username, password });
+            if (res.ok) {
+                handleAuthSuccess(res.data);
+            }
+        }
+
+        function handleAuthSuccess(data) {
+            token = data.token;
+            user = data.user;
+            localStorage.setItem('jwt_token', token);
+            localStorage.setItem('user_info', JSON.stringify(user));
+            updateUI();
+            fetchProducts();
+        }
+
+        function logout() {
+            token = null;
+            user = {};
+            localStorage.removeItem('jwt_token');
+            localStorage.removeItem('user_info');
+            updateUI();
+            log('Logged out');
+        }
+
+        async function fetchProducts() {
+            const res = await apiCall('/api/products');
+            const list = document.getElementById('product-list');
+            list.innerHTML = '';
+            
+            if (res.ok && Array.isArray(res.data)) {
+                res.data.forEach(p => {
+                    const div = document.createElement('div');
+                    div.className = 'product-item';
+                    div.innerHTML = `
+                        <div>
+                            <strong>${p.name}</strong> (${p.company}) - $${p.price}
+                            <br><small>${p.size}</small>
+                        </div>
+                        <div>
+                            ${user.role === 'admin' ? `<button class="danger" onclick="deleteProduct(${p.id})">Delete</button>` : ''}
+                        </div>
+                    `;
+                    list.appendChild(div);
+                });
+            }
+        }
+
+        async function createProduct() {
+            const formData = new FormData();
+            formData.append('name', document.getElementById('prod-name').value);
+            formData.append('company', document.getElementById('prod-company').value);
+            formData.append('size', document.getElementById('prod-size').value);
+            formData.append('price', document.getElementById('prod-price').value);
+            
+            const fileInput = document.getElementById('prod-media');
+            if (fileInput.files[0]) {
+                formData.append('media', fileInput.files[0]);
+            }
+
+            const res = await apiCall('/api/admin/products', 'POST', formData, true);
+            if (res.ok) {
+                fetchProducts();
+            }
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('Are you sure?')) return;
+            const res = await apiCall(`/api/admin/products/${id}`, 'DELETE');
+            if (res.ok) {
+                fetchProducts();
+            }
+        }
+
+        // Init
+        updateUI();
+        fetchProducts();
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+name = "jkoneply-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+
+# D1 Database Binding
+[[d1_databases]]
+binding = "DB"
+database_name = "jkoneply-db"
+database_id = "c496840e-3817-483e-bd19-c9188041df1d"
+
+# KV Namespace Binding
+[[kv_namespaces]]
+binding = "MEDIA_BUCKET"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+[vars]
+JWT_SECRET = "local_secret_for_dev_only"

@@ -1,0 +1,21 @@
+{
+  "name": "jkoneply_api",
+  "version": "1.0.0",
+  "description": "Complete Cloudflare Worker backend for a plywood/products catalog app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tsndr/cloudflare-worker-jwt": "^3.2.1",
+    "itty-router": "^5.0.22"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251229.0",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.54.0"
+  }
+}

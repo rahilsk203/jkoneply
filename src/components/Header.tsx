@@ -51,9 +51,7 @@ const Header: React.FC = () => {
                             <i className="fas fa-microphone"></i>
                         </div>
                         <div className="icons">
-                            <Link to="/login" aria-label="Login">
-                                <i className="far fa-user"></i>
-                            </Link>
+                            <i className="far fa-user"></i>
                             <i className="far fa-heart"></i>
                             <div className="cart-icon">
                                 <i className="fas fa-shopping-cart"></i>

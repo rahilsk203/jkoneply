@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import localVideo from '../assets/video.mp4';
 
 const categories = [
     { id: 'living', name: 'LIVING ROOM' },
@@ -24,7 +23,7 @@ const inspirationData = {
         title: 'Ideas to match your Living Room style',
         subtitle: 'Elevate your living space with modern designs and premium materials that reflect your personality.',
         grid: [
-            { type: 'video', url: localVideo, span: 'large-v' },
+            { type: 'image', url: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop', span: 'large-v' },
             { type: 'text', title: 'Elegant Design', description: 'Crafted with precision to bring sophistication to your home.', color: '#7D5D5D' },
             { type: 'image', url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1000&auto=format&fit=crop', span: 'small' },
             { type: 'image', url: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1000&auto=format&fit=crop', span: 'large-v' }
@@ -38,7 +37,7 @@ const inspirationData = {
             { type: 'image', url: 'https://images.unsplash.com/photo-1617806118233-18e16747d52c?q=80&w=1000&auto=format&fit=crop', span: 'large-v' },
             { type: 'text', title: 'Premium Finish', description: 'High-quality materials that ensure a luxurious dining atmosphere.', color: '#5D5D7D' },
             { type: 'image', url: 'https://images.unsplash.com/photo-1604578762246-41134e37f9cc?q=80&w=1000&auto=format&fit=crop', span: 'small' },
-            { type: 'video', url: 'https://cdn.coverr.co/videos/coverr-kitchen-design-1568/1080p.mp4', span: 'large-v' }
+            { type: 'image', url: 'https://images.unsplash.com/photo-1615064646657-3508b9f62ff3?q=80&w=1000&auto=format&fit=crop', span: 'large-v' }
         ]
     },
     commercial: {
@@ -98,21 +97,6 @@ const InspirationPage: React.FC = () => {
                                         className={`grid-item image-item ${item.span}`}
                                         style={{ backgroundImage: `url(${item.url})` }}
                                     ></div>
-                                );
-                            } else if (item.type === 'video') {
-                                return (
-                                    <div
-                                        key={index}
-                                        className={`grid-item video-item ${item.span}`}
-                                    >
-                                        <video
-                                            src={item.url}
-                                            autoPlay
-                                            loop
-                                            muted
-                                            playsInline
-                                        />
-                                    </div>
                                 );
                             } else {
                                 return (
