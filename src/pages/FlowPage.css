@@ -48,6 +48,37 @@
     }
 }
 
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
 .flow-page {
     background: linear-gradient(-45deg, #ff3b30, #ff6b5a, #ff4444, #ff2d55);
     background-size: 400% 400%;
@@ -446,4 +477,67 @@
         width: 110px;
         height: 110px;
     }
+}
+
+/* Ripple Effect */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    animation: ripple 0.6s ease-out;
+}
+
+/* Link Arrow */
+.link-arrow {
+    margin-left: auto;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.flow-link-card:hover .link-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    animation: bounce 0.6s ease infinite;
+}
+
+/* Contact Icon Bounce on Click */
+.contact-icon:active {
+    animation: bounce 0.3s ease;
+}
+
+/* Button Press Effect */
+.flow-action-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Smooth Cursor Interaction */
+.flow-container {
+    cursor: default;
+}
+
+.flow-link-card {
+    cursor: pointer;
+    will-change: transform;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Icon Pulse on Hover */
+.contact-icon i {
+    transition: all 0.3s ease;
+}
+
+.contact-icon:hover i {
+    animation: pulse 1s ease infinite;
+}
+
+/* Logo Rotation on Hover */
+.flow-logo {
+    transition: transform 0.5s ease;
+}
+
+.flow-logo-wrapper:hover .flow-logo {
+    transform: rotate(360deg);
 }
