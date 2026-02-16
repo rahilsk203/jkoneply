@@ -7,14 +7,14 @@ const FlowPage: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const socialLinks = [
-        { name: 'JK Plywood | Whatsapp', label: 'Chat Now', icon: 'fab fa-whatsapp', color: '#25D366' },
-        { name: 'JK Plywood | Instagram', label: 'Follow Now', icon: 'fab fa-instagram', color: '#E1306C' },
-        { name: 'JK Plywood | Facebook', label: 'Like Our Page', icon: 'fab fa-facebook-f', color: '#1877F2' },
-        { name: 'JK Plywood | Pinterest', label: 'Share with all', icon: 'fab fa-pinterest-p', color: '#BD081C' },
-        { name: 'JK Plywood | Corporate Office', label: 'Locate us', icon: 'fas fa-map-marker-alt', color: '#EA4335' },
-        { name: 'JK Plywood | Product Brochure', label: 'Download Brochure', icon: 'fas fa-download', color: '#333' },
-        { name: 'JK Plywood | Door Brochure', label: 'Download Brochure', icon: 'fas fa-download', color: '#333' },
-        { name: 'JK Plywood | Door Designs', label: 'View Designs', icon: 'fas fa-download', color: '#333' },
+        { name: 'JK ONE PLY | Whatsapp', label: 'Chat Now', icon: 'fab fa-whatsapp', color: '#25D366' },
+        { name: 'JK ONE PLY | Instagram', label: 'Follow Now', icon: 'fab fa-instagram', color: '#E1306C' },
+        { name: 'JK ONE PLY | Facebook', label: 'Like Our Page', icon: 'fab fa-facebook-f', color: '#1877F2' },
+        { name: 'JK ONE PLY | Pinterest', label: 'Share with all', icon: 'fab fa-pinterest-p', color: '#BD081C' },
+        { name: 'JK ONE PLY | MR - PRO', label: 'Download Brochure', icon: 'fas fa-download', color: '#333' },
+        { name: 'JK ONE PLY | GOLD - PRIME', label: 'Download Brochure', icon: 'fas fa-download', color: '#333' },
+        { name: 'JK ONE PLY | CLUB - PLUS', label: 'View Designs', icon: 'fas fa-download', color: '#333' },
+        { name: 'JK ONE PLY | Door', label: 'Download Brochure', icon: 'fas fa-download', color: '#333' },
     ];
 
     useEffect(() => {
@@ -84,11 +84,11 @@ const FlowPage: React.FC = () => {
             >
                 <div className="flow-header">
                     <div className="flow-logo-wrapper">
-                        <img src={logo} alt="JKONEPLY Logo" className="flow-logo" />
+                        <img src={logo} alt="JK ONE PLY Logo" className="flow-logo" />
                     </div>
-                    <h1>JK Plywood</h1>
+                    <h1>JK ONE PLY</h1>
                     <p className="flow-description">
-                        JK Plywood specializes in creating high-quality, long-lasting
+                        JK ONE PLY specializes in creating high-quality, long-lasting
                         plywood products that are both stylish and environmentally
                         responsible. Our range includes plywood, block boards, and
                         laminated doors, all designed to provide exceptional strength
@@ -135,7 +135,7 @@ const FlowPage: React.FC = () => {
                 </div>
 
                 <div className="flow-footer-text">
-                    A PRODUCT OF JKONEPLY PVT. LTD.
+                    A PRODUCT OF JK ONE PLY PVT. LTD.
                 </div>
             </div>
 
