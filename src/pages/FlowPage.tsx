@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './FlowPage.css';
 import logo from '../assets/logo.svg';
 import plyHover from '../assets/ply-hover.png';
