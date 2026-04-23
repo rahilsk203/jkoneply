@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './FlowPage.css';
-import logo from '../assets/logo.svg';
-import plyHover from '../assets/ply-hover.png';
+import logo from '../assets/logo.jpeg';
+import test1 from '../assets/test.jpeg';
+import test2 from '../assets/test1.jpeg';
+import test3 from '../assets/test2.jpeg';
+import test4 from '../assets/test3.jpeg';
 
 const FlowPage: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -10,11 +13,6 @@ const FlowPage: React.FC = () => {
         { name: 'JK ONE PLY | Whatsapp', label: 'Chat Now', icon: 'fab fa-whatsapp', color: '#25D366', url: 'https://wa.me/919474707527' },
         { name: 'JK ONE PLY | Instagram', label: 'Follow Now', icon: 'fab fa-instagram', color: '#E1306C', url: 'https://www.instagram.com/jk_one_ply' },
         { name: 'JK ONE PLY | Facebook', label: 'Like Our Page', icon: 'fab fa-facebook-f', color: '#1877F2', url: 'https://www.facebook.com/share/1EDxRDqe9P/' },
-        { name: 'JK ONE PLY | Pinterest', label: 'Share with all', icon: 'fab fa-pinterest-p', color: '#BD081C', url: 'https://pin.it/NKLZUXDWx' },
-        { name: 'JK ONE PLY | MR - PRO', label: 'Download Brochure', icon: 'fas fa-download', color: '#333' },
-        { name: 'JK ONE PLY | GOLD - PRIME', label: 'Download Brochure', icon: 'fas fa-download', color: '#333' },
-        { name: 'JK ONE PLY | CLUB - PLUS', label: 'View Designs', icon: 'fas fa-download', color: '#333' },
-        { name: 'JK ONE PLY | Door', label: 'Download Brochure', icon: 'fas fa-download', color: '#333' },
     ];
 
     useEffect(() => {
@@ -123,6 +121,9 @@ const FlowPage: React.FC = () => {
 
     return (
         <div className="flow-page">
+            <div className="shape shape-1"></div>
+            <div className="shape shape-2"></div>
+            <div className="shape shape-3"></div>
             <div
                 className="flow-container"
                 ref={containerRef}
@@ -130,9 +131,15 @@ const FlowPage: React.FC = () => {
                 <div className="flow-header">
                     <div className="flow-logo-wrapper">
                         <img src={logo} alt="JK ONE PLY Logo" className="flow-logo" />
-                        <img src={plyHover} alt="JK ONE PLY Plywood" className="flow-logo hover-img" />
+                        <div className="hover-text">
+                            <span>PLYWOOD</span>
+                            <span>BLOCK BOARD</span>
+                            <span>FLUSH DOOR</span>
+                            <span>LAMINATE</span>
+                        </div>
                     </div>
                     <h1>JK ONE PLY</h1>
+                    <p className="header-subtitle">PLYWOOD, BLOCK BOARD, FLUSH DOOR, LAMINATE</p>
                     <p className="flow-description">
                         JK ONE PLY specializes in creating high-quality, long-lasting
                         plywood products that are both stylish and environmentally
@@ -182,8 +189,38 @@ const FlowPage: React.FC = () => {
                     ))}
                 </div>
 
+                <div className="flow-gallery">
+                    <h3>EXPLORE OUR DESIGNS</h3>
+                    <div className="gallery-scroll">
+                        <div className="gallery-item">
+                            <div className="step-badge">1</div>
+                            <h4>MR-PRO</h4>
+                            <img src={test2} alt="MR-PRO Plywood" />
+                            <div className="item-label">MR GRADE PLYWOOD | 5 YEAR WARRANTY</div>
+                        </div>
+                        <div className="gallery-item">
+                            <div className="step-badge">2</div>
+                            <h4>GOLD-PRIME</h4>
+                            <img src={test4} alt="GOLD-PRIME Plywood" />
+                            <div className="item-label">BWR GRADE | 15 YEAR WARRANTY</div>
+                        </div>
+                        <div className="gallery-item">
+                            <div className="step-badge">3</div>
+                            <h4>CLUB-PLUS</h4>
+                            <img src={test3} alt="CLUB-PLUS Plywood" />
+                            <div className="item-label">PREMIUM MARINE BWP | 25 YEAR WARRANTY</div>
+                        </div>
+                        <div className="gallery-item">
+                            <div className="step-badge">4</div>
+                            <h4>FLUSH DOOR</h4>
+                            <img src={test1} alt="Premium Flush Door" />
+                            <div className="item-label">100% PINE CORE | 25 YEAR WARRANTY</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="flow-footer-text">
-                    A PRODUCT OF JK ONE PLY PVT. LTD.
+                    "STRENGTH THAT INSPIRES, QUALITY THAT ENDURES."
                 </div>
             </div>
 
