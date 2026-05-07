@@ -13,6 +13,7 @@ const FlowPage: React.FC = () => {
         { name: 'JK ONE PLY | Whatsapp', label: 'Chat Now', icon: 'fab fa-whatsapp', color: '#25D366', url: 'https://wa.me/919474707527' },
         { name: 'JK ONE PLY | Instagram', label: 'Follow Now', icon: 'fab fa-instagram', color: '#E1306C', url: 'https://www.instagram.com/jk_one_ply' },
         { name: 'JK ONE PLY | Facebook', label: 'Like Our Page', icon: 'fab fa-facebook-f', color: '#1877F2', url: 'https://www.facebook.com/share/1EDxRDqe9P/' },
+        { name: 'JK ONE PLY | YouTube', label: 'Watch Now', icon: 'fab fa-youtube', color: '#FF0000', url: 'https://youtube.com/@jkoneply' },
     ];
 
     useEffect(() => {
@@ -155,6 +156,7 @@ const FlowPage: React.FC = () => {
                     <a href="https://maps.google.com/?q=West+Bengal,India" target="_blank" rel="noopener noreferrer" className="contact-icon"><i className="fas fa-map-marker-alt"></i></a>
                     <a href="mailto:jkoneply@gmail.com" className="contact-icon"><i className="fas fa-envelope"></i></a>
                     <a href="https://wa.me/919474707527" target="_blank" rel="noopener noreferrer" className="contact-icon"><i className="fas fa-comment-alt"></i></a>
+                    <a href="https://youtube.com/@jkoneply" target="_blank" rel="noopener noreferrer" className="contact-icon"><i className="fab fa-youtube"></i></a>
                 </div>
 
                 <div className="flow-actions">
