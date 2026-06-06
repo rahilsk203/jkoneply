@@ -14,6 +14,8 @@ const FlowPage: React.FC = () => {
         { name: 'JK ONE PLY | Instagram', label: 'Follow Now', icon: 'fab fa-instagram', color: '#E1306C', url: 'https://www.instagram.com/jk_one_ply' },
         { name: 'JK ONE PLY | Facebook', label: 'Like Our Page', icon: 'fab fa-facebook-f', color: '#1877F2', url: 'https://www.facebook.com/share/1EDxRDqe9P/' },
         { name: 'JK ONE PLY | YouTube', label: 'Watch Now', icon: 'fab fa-youtube', color: '#FF0000', url: 'https://youtube.com/@jkoneply' },
+        { name: 'JK ONE PLY | IndiaMART', label: 'View Profile', icon: 'fas fa-store', color: '#012B72', url: '#' },
+        { name: 'JK ONE PLY | Amazon', label: 'Shop Now', icon: 'fab fa-amazon', color: '#FF9900', url: '#' },
     ];
 
     useEffect(() => {
